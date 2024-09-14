@@ -1,7 +1,7 @@
 {
   "name": "@coreui/coreui-free-react-admin-template",
   "version": "5.1.0",
-  "description": "CoreUI Free React Admin Template",
+  "description": "Indian Wildlife Tourism",
   "homepage": ".",
   "bugs": {
     "url": "https://github.com/coreui/coreui-free-react-admin-template/issues"
@@ -11,7 +11,7 @@
     "url": "git@github.com:coreui/coreui-free-react-admin-template.git"
   },
   "license": "MIT",
-  "author": "The CoreUI Team (https://github.com/orgs/coreui/people)",
+  "author": "Indian Wildlife Tourism",
   "scripts": {
     "build": "vite build",
     "lint": "eslint \"src/**/*.js\"",

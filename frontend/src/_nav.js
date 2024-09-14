@@ -23,24 +23,23 @@ const _nav = [
     to: '/dashboard',
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     badge: {
-      color: 'info',
-      text: 'NEW',
+      color: 'info'
     },
-  },
-  /*{
-    component: CNavTitle,
-    name: 'Theme',
-  },*/
-  {
+  },{
     component: CNavItem,
-    name: 'Manage Hotels',
-    to: '/manage-hotels',
-    icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavItem,
-    name: 'Manage Cars',
+    name: 'Cars Section',
     to: '/manage-cars',
+    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+  },{
+    component: CNavItem,
+    name: 'Cars Packages',
+    to: '/manage-packages',
+    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Safari Section',
+    to: '/manage-safari',
     icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
   },
   {
@@ -51,26 +50,31 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'Hotels',
-        to: '/bookings/hotels',
+        name: 'Cars Booking',
+        to: '/bookings/carsbookings',
       },
       {
         component: CNavItem,
-        name: 'Cars',
-        to: '/bookings/cars',
-      },
+        name: 'Safari Booking',
+        to: '/bookings/safaribookings',
+      }
     ],
   },
   {
     component: CNavItem,
-    name: 'User List',
+    name: 'User Section',
     to: '/user-list',
     icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
-    name: 'Advertises',
+    name: 'Advertise Section',
     to: '/advertises',
+    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+  },{
+    component: CNavItem,
+    name: 'Slider Section',
+    to: '/slider',
     icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
   },
   

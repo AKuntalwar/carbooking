@@ -1,61 +1,65 @@
 const {db} = require("../config/dbConfig");
+const crypto = require('crypto');
 //const {  validationResult } = require("express-validator");
 
+const getClientIp = (req) => {
+    // This will work in most scenarios in Express.js
+    return req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress;
+}
+const auditLogin = (userId,loginIp) => {
+    
+    return new Promise((resolve, reject) => {
+        const lastLoginDate = new Date();
+        const updateQuery = 'UPDATE user_login_master SET last_login_date = ?, last_login_ip = ? WHERE user_id = ?';
+        
+        db.query(updateQuery, [lastLoginDate, loginIp, userId], (err) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(true);
+        });
+    });
+};
 
-const authenticate =  async (username, password) => { 
+const authenticate =  async (req) => { 
+    const {username, password} = req.body;
     return new Promise((resolve,reject)=>{
         let result = {status:false,message:"Something went wrong!",data:null};
-        const query = 'SELECT user_id ,username  FROM user_login_master WHERE username = ? AND pass_text = ?';
-        db.query(query, [username, password], (err, data) => {
+        const hashedPassword = crypto.createHash('md5').update(password).digest('hex');
+        const query = 'SELECT user_id ,username,user_role  FROM user_login_master WHERE username = ? AND password = ?';
+        db.query(query, [username, hashedPassword], (err, data) => {
             if(err){                
                 result.status=false;
                 result.message = "Something went wrong!";
                 return resolve(result);
             }
-            console.log("data",data);
+            // console.log("data",data);
             
             if(!data || data.length==0){
                 result.status=false;
                 result.message = "User not found!";
                 return resolve(result);
             }
-            // if(data[0].USER_NAME==='username'){
-                result.status=true;
-                result.message = "You are logged in successfully!";
-                result.data=data[0]; 
-                resolve(result);
-            // }
+            //update the last login IP and Date:
+            const query = 'UPDATE user_login_master SET last_login_date=NOW(), last_login_ip=""';
+
+            result.status=true;
+            result.message = "You are logged in successfully!";
+            result.data=data[0]; 
+            resolve(result);
+            let user_id = data[0]?.user_id;
+            const loginIp = getClientIp(req);
+            auditLogin(user_id,loginIp)
+                .then(() => resolve(result))
+                .catch(updateErr => {
+                   resolve(result);
+                });
         });
 
     }); 
 
 }
-// const authenticate =  async (username, password) => {    
-//     let result = {};
-//     const sql =
-//     "SELECT * FROM user_login_master WHERE USER_NAME = ? AND PASS_TEXT = ?";
-//    let resultQuery = await db.query(sql, [username, password], (err, data) => {
-     
-    
-//       if (err) {
-//         result.status="Failed";
-//         result.message = "Something went wrong!";
-//       }
-//       if (data.length > 0) {
-        
-//         result.status="Success";
-//         result.message = "You are logged in successfully!";
-//       } else {
-//         result.status="Failed";
-//         result.message = "Invalid username and password! Please try again!";
-//       }
-//     //console.log("result",result);
-   
-    
-//   });
-//   console.log("resultQuery",resultQuery);
-//   return result;
-// }
+
  
 
 module.exports = {authenticate}

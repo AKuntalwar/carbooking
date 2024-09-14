@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "bce63251-7670-4a51-a172-50603ed1e7f9",
+		"name": "Car Booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17013485",
+		"_collection_link": "https://simplecrmv30.postman.co/workspace/Team-Workspace~d466a120-0a44-459d-8dda-a1d46e1edf90/collection/17013485-bce63251-7670-4a51-a172-50603ed1e7f9?action=share&source=collection_link&creator=17013485"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login-success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1234/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "99"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"63-8XSQy12XnjNnYQ9nIOm9emDxZ4c\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 14 Sep 2024 07:33:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"You are logged in successfully!\",\n    \"data\": {\n        \"user_id\": 1,\n        \"username\": \"admin\"\n    }\n}"
+				},
+				{
+					"name": "login-failed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1234/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"38-xbtSk5p6Y77HE9tQ99alMGzhHBE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 14 Sep 2024 07:33:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"User not found!\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "car",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Ertiga",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "seats",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "model",
+							"value": "New",
+							"type": "text"
+						},
+						{
+							"key": "car_number",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "iskdbsjk",
+							"type": "text"
+						},
+						{
+							"key": "files",
+							"type": "file",
+							"src": [
+								"/C:/Users/simpl/Downloads/WhatsApp Image 2024-09-14 at 12.41.27 PM.jpeg",
+								"/C:/Users/simpl/Downloads/Opportunities 2024-9-12 18_0_0.xls"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/addCar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"addCar"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

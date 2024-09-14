@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link,  useNavigate } from 'react-router-dom';
+import { CImage } from '@coreui/react'
 import {
   CAlert,
   CButton,
@@ -59,12 +60,13 @@ const Login = () => {
   }
 
   return (
-    <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
+    <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center bg-color">
       <CContainer>
         <CRow className="justify-content-center">
-          <CCol md={6}>
+          <CCol md={4}>
             <CCardGroup>
               <CCard className="p-4">
+              <CImage fluid src="/logo.png" width={150} height={150} align="center" />
                 <CCardBody>
                   <CForm onSubmit={handleSubmit}>
                     <h4>Admin Login</h4>
