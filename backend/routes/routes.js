@@ -24,7 +24,9 @@ const upload = multer({ storage: storage });
 
  router.post('/login',login);
  router.post('/addCar',upload.fields([{ name: 'car_photos', maxCount: 5 },{ name: 'car_featured_photo', maxCount: 1 }]),CarController.addCar);
-//  router.patch('/module/updatecars',moduleController.updateCars);
-
+ router.patch('/updateCar',upload.fields([{ name: 'car_photos', maxCount: 5 },{ name: 'car_featured_photo', maxCount: 1 }]),CarController.updateCar);
+ router.get('/getCar',CarController.getCar);
+ router.get('/getCars',CarController.getCars);
+ router.delete('/deleteCar',CarController.deleteCar);
 
  module.exports = router;
