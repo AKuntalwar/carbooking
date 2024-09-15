@@ -172,7 +172,7 @@
 			]
 		},
 		{
-			"name": "car",
+			"name": "Car-Add",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -181,7 +181,182 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "Ertiga",
+							"value": "Innova",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "seats",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "model",
+							"value": "New",
+							"type": "text"
+						},
+						{
+							"key": "car_number",
+							"value": "456",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "New Innova",
+							"type": "text"
+						},
+						{
+							"key": "car_photos",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1ef72783-4445-4470-bca5-4f33dbaecb71",
+								"/C:/Users/simpl/Downloads/carbooking (1).sql"
+							]
+						},
+						{
+							"key": "car_featured_photo",
+							"type": "file",
+							"src": "postman-cloud:///1ef72783-4445-4470-bca5-4f33dbaecb71"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:1234/api/addCar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"addCar"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Car-Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ertiga",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "seats",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "New",
+									"type": "text"
+								},
+								{
+									"key": "car_number",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "iskdbsjk",
+									"type": "text"
+								},
+								{
+									"key": "car_photos",
+									"type": "file",
+									"src": [
+										"postman-cloud:///1ef72783-4445-4470-bca5-4f33dbaecb71",
+										"/C:/Users/simpl/Downloads/carbooking (1).sql"
+									]
+								},
+								{
+									"key": "car_featured_photo",
+									"type": "file",
+									"src": "postman-cloud:///1ef72783-4445-4470-bca5-4f33dbaecb71"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:1234/api/addCar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"api",
+								"addCar"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "81"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"51-SfJu63cpWd+Gf0R1Jv39UtTfwco\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 14 Sep 2024 09:37:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Car details and photos saved successfully\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Car-Update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Ertiga-CNG",
 							"type": "text"
 						},
 						{
@@ -210,17 +385,28 @@
 							"type": "text"
 						},
 						{
-							"key": "files",
+							"key": "car_photos",
 							"type": "file",
 							"src": [
-								"/C:/Users/simpl/Downloads/WhatsApp Image 2024-09-14 at 12.41.27 PM.jpeg",
-								"/C:/Users/simpl/Downloads/Opportunities 2024-9-12 18_0_0.xls"
+								"postman-cloud:///1ef72783-4445-4470-bca5-4f33dbaecb71",
+								"/C:/Users/simpl/OneDrive/Pictures/image_2024_08_19T13_01_33_576Z.jpg",
+								"/C:/Users/simpl/OneDrive/Pictures/image_2024_08_26T07_23_57_063Z.png"
 							]
+						},
+						{
+							"key": "car_featured_photo",
+							"type": "file",
+							"src": "postman-cloud:///1ef72783-4445-4470-bca5-4f33dbaecb71"
+						},
+						{
+							"key": "car_id",
+							"value": "1",
+							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:1234/api/addCar",
+					"raw": "http://localhost:1234/api/updateCar",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -228,11 +414,405 @@
 					"port": "1234",
 					"path": [
 						"api",
-						"addCar"
+						"updateCar"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Car-Update",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ertiga-CNG",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "seats",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "New",
+									"type": "text"
+								},
+								{
+									"key": "car_number",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "iskdbsjk",
+									"type": "text"
+								},
+								{
+									"key": "car_photos",
+									"type": "file",
+									"src": [
+										"postman-cloud:///1ef72783-4445-4470-bca5-4f33dbaecb71",
+										"/C:/Users/simpl/OneDrive/Pictures/image_2024_08_19T13_01_33_576Z.jpg",
+										"/C:/Users/simpl/OneDrive/Pictures/image_2024_08_26T07_23_57_063Z.png"
+									]
+								},
+								{
+									"key": "car_featured_photo",
+									"type": "file",
+									"src": "postman-cloud:///1ef72783-4445-4470-bca5-4f33dbaecb71"
+								},
+								{
+									"key": "car_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:1234/api/updateCar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"api",
+								"updateCar"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "83"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"53-PF089nd5Rpdu1pwNl06l/QN03Y4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 02:57:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Car details and photos updated successfully\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Car - List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1234/api/getCars?page=1&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"getCars"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Car - List",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1234/api/getCars?page=1&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"api",
+								"getCars"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "574"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23e-aFMB2gMRDE/S++3EDL09JOSBD4k\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 03:20:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Car list fetched successfully\",\n    \"data\": {\n        \"total\": 2,\n        \"page\": 1,\n        \"limit\": 10,\n        \"cars\": [\n            {\n                \"id\": 1,\n                \"name\": \"Ertiga-CNG\",\n                \"type\": \"2\",\n                \"seats\": \"7\",\n                \"model\": \"New\",\n                \"car_number\": \"1234\",\n                \"description\": \"iskdbsjk\",\n                \"created_by\": null,\n                \"created_on\": \"2024-09-15T02:50:19.000Z\",\n                \"featured_photo\": \"car_featured_photo-1726369074280-119501117.jpeg\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Innova\",\n                \"type\": \"2\",\n                \"seats\": \"7\",\n                \"model\": \"New\",\n                \"car_number\": \"456\",\n                \"description\": \"New Innova\",\n                \"created_by\": null,\n                \"created_on\": \"2024-09-15T03:20:22.000Z\",\n                \"featured_photo\": \"car_featured_photo-1726370422018-671314818.jpeg\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Car - Single",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1234/api/getCar?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"getCar"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Car - Single - Error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1234/api/getCar?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"api",
+								"getCar"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a-HjGFwecQupvrilDhJ+fHWCswkKI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 03:41:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"No car found with the provided ID\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Car - Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:1234/api/deleteCar?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"api",
+						"deleteCar"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Car - Delete-Success",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1234/api/deleteCar?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"api",
+								"deleteCar"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "86"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"56-ZXmy5cR0DZuMdISkLqpNW+uOTTg\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 03:35:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Car and associated photos deleted successfully\",\n    \"data\": null\n}"
+				}
+			]
 		}
 	]
 }
