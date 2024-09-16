@@ -1,5 +1,6 @@
 const {db} = require("../config/dbConfig");
 const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
 //const {  validationResult } = require("express-validator");
 
 const getClientIp = (req) => {
@@ -45,7 +46,14 @@ const authenticate =  async (req) => {
 
             result.status=true;
             result.message = "You are logged in successfully!";
-            result.data=data[0]; 
+            let user = data[0]??"";
+
+            const token = jwt.sign({ username: user?.username }, process.env.JWT_SECRET, {
+                expiresIn: process.env.JWT_EXPIRE_TIME,
+              });
+            result.data=user; 
+            result.access_token=token; 
+            result.expires_in=process.env.JWT_EXPIRE_TIME; 
             resolve(result);
             let user_id = data[0]?.user_id;
             const loginIp = getClientIp(req);

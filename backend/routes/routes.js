@@ -1,6 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
+const verifyToken = require('../middleware/auth');
 
 const router = express.Router();
 const {login} = require('../controllers/userController');
@@ -23,10 +24,10 @@ const upload = multer({ storage: storage });
 
 
  router.post('/login',login);
- router.post('/addCar',upload.fields([{ name: 'car_photos', maxCount: 5 },{ name: 'car_featured_photo', maxCount: 1 }]),CarController.addCar);
- router.patch('/updateCar',upload.fields([{ name: 'car_photos', maxCount: 5 },{ name: 'car_featured_photo', maxCount: 1 }]),CarController.updateCar);
- router.get('/getCar',CarController.getCar);
- router.get('/getCars',CarController.getCars);
- router.delete('/deleteCar',CarController.deleteCar);
+ router.post('/addCar',verifyToken,upload.fields([{ name: 'car_photos', maxCount: 5 },{ name: 'car_featured_photo', maxCount: 1 }]),CarController.addCar);
+ router.patch('/updateCar',verifyToken,upload.fields([{ name: 'car_photos', maxCount: 5 },{ name: 'car_featured_photo', maxCount: 1 }]),CarController.updateCar);
+ router.get('/getCar',verifyToken,CarController.getCar);
+ router.get('/getCars',verifyToken,CarController.getCars);
+ router.delete('/deleteCar',verifyToken,CarController.deleteCar);
 
  module.exports = router;
