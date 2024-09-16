@@ -4,8 +4,7 @@ const path = require('path');
 const verifyToken = require('../middleware/auth');
 
 const router = express.Router();
-const {login} = require('../controllers/userController');
-// const moduleController = require("../controllers/moduleController");
+const UserController = require('../controllers/UserController');
 const CarController = require("../controllers/CarController");
 
 // Configure Multer for file uploads (store in 'uploads' folder)
@@ -23,7 +22,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 
- router.post('/login',login);
+ router.post('/login',UserController.login);
+ router.post('/create-user',UserController.register);
+
  router.post('/addCar',verifyToken,upload.fields([{ name: 'car_photos', maxCount: 5 },{ name: 'car_featured_photo', maxCount: 1 }]),CarController.addCar);
  router.patch('/updateCar',verifyToken,upload.fields([{ name: 'car_photos', maxCount: 5 },{ name: 'car_featured_photo', maxCount: 1 }]),CarController.updateCar);
  router.get('/getCar',verifyToken,CarController.getCar);
