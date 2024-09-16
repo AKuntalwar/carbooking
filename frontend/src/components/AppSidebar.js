@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-
+import { CImage } from '@coreui/react'
 import {
   CCloseButton,
   CSidebar,
@@ -36,10 +36,7 @@ const AppSidebar = () => {
       }}
     >
       <CSidebarHeader className="border-bottom">
-        <CSidebarBrand to="/">
-          <CIcon customClassName="sidebar-brand-full" icon={logo} height={32} />
-          <CIcon customClassName="sidebar-brand-narrow" icon={sygnet} height={32} />
-        </CSidebarBrand>
+      <CImage fluid src="/logo.png" width={100} height={100} align="center" />
         <CCloseButton
           className="d-lg-none"
           dark

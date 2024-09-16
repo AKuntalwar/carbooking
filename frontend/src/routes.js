@@ -5,7 +5,6 @@ const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
 //Components
-const ManageHotels = React.lazy(() => import('./components/ManageHotels/ManageHotels'))
 const ManageCars = React.lazy(() => import('./components/ManageCars/ManageCars'))
 const BookingCars = React.lazy(() => import('./components/Bookings/Cars/BookingCars'))
 const BookingHotels = React.lazy(() => import('./components/Bookings/Hotels/BookingHotels'))
@@ -68,11 +67,10 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
-  { path: '/manage-hotels', name: 'Manage Hotels', element: ManageHotels },
   
-  { path: '/manage-cars', name: 'Manage Cars', element: ManageCars },
+  { path: '/manage-cars', name: 'Cars Section', element: ManageCars },
   { path: '/add-cars', name: 'Add Cars', element: AddCarsData },
-  { path: '/edit-cars', name: 'Edit Cars', element: EditCars },
+  { path: '/edit-cars', name: 'Update Cars', element: EditCars },
 
   { path: '/bookings/cars', name: 'Booking Cars', element: BookingCars },
   { path: '/bookings/hotels', name: 'Booking Hotels', element: BookingHotels },

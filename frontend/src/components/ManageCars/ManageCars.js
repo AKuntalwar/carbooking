@@ -1,62 +1,49 @@
 import {
   CButton,
+  CRow,
   CCol,
-  CForm,
-  CFormInput,
-  CFormLabel,
-  CFormTextarea,
-  CCard,
-  CTable,
-  CTableHead,
-  CTableRow,
-  CTableHeaderCell,
-  CTableBody,
-  CTableDataCell,
+  CCardBody,
+  CCardTitle,
+  CCardText,
+  CCard
 } from '@coreui/react'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 
-const ManageCars = () => {
-  
-
+const ManageCars = () => { 
   return (
     <>
       <div className="row">
         <div className="col-xxl-6 col-xl-4 col-sm-6">
-          <h4>Manage Cars Data</h4>
+          <h4>Cars Section</h4>
         </div>
         <div className="col-xxl-6 col-xl-4 col-sm-6">
           <p className="float-end">
-            <CButton as="a" color="primary" role="button">
-              <Link to="/add-cars" style={{color: '#fff', textDecoration: 'none'} }>Add Cars</Link>
+            <CButton as="a" color="primary" role="button" size="sm">
+              <Link to="/add-cars" style={{color: '#fff', textDecoration: 'none'} }>Add New Cars</Link>
             </CButton>
           </p>
         </div>
 
         <div>
-          <CCard>
-            <CTable>
-              <CTableHead>
-                <CTableRow>
-                  <CTableHeaderCell scope="col">#</CTableHeaderCell>
-                  <CTableHeaderCell scope="col">Class</CTableHeaderCell>
-                  <CTableHeaderCell scope="col">Heading</CTableHeaderCell>
-                  <CTableHeaderCell scope="col">Heading</CTableHeaderCell>
-                  <CTableHeaderCell scope="col">Action</CTableHeaderCell>
-                </CTableRow>
-              </CTableHead>
-              <CTableBody>
-                <CTableRow>
-                  <CTableHeaderCell scope="row">1</CTableHeaderCell>
-                  <CTableDataCell>Mark</CTableDataCell>
-                  <CTableDataCell>Otto</CTableDataCell>
-                  <CTableDataCell>@mdo</CTableDataCell>
-                  <CTableDataCell><CButton color="info" shape="rounded-pill"><Link to="/edit-cars" style={{color: '#fff', textDecoration: 'none'} }>Edit</Link></CButton><CButton color="danger" shape="rounded-pill">Delete</CButton></CTableDataCell>
-                </CTableRow>
-              </CTableBody>
-            </CTable>
-          </CCard>
+        
+          <CRow>
+            <CCol sm={4}>
+              <CCard>
+                <CCardBody>
+                  <CCardTitle>Special title treatment</CCardTitle>
+                  <CCardText>
+                    With supporting text below as a natural lead-in to additional content.
+                  </CCardText>
+                  <CButton color="warning" href="/add-cars" size="sm" className="ml-10">View</CButton>
+                  <CButton color="primary" href="/add-cars" size="sm" className="ml-10">Update</CButton>
+                  <CButton color="danger" href="/add-cars" size="sm" className="ml-10">Delete</CButton>
+                </CCardBody>
+              </CCard>
+            </CCol>
+          </CRow>
+          
         </div>
       </div>
     </>

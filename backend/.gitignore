@@ -10,9 +10,13 @@ yarn.lock
 
 # production
 /build
+<<<<<<< HEAD
 /uploads
 *.zip
 *.sql
+=======
+/upload
+>>>>>>> a53c42f026d2dc938e455f33ade319b9073943ec
 # misc
 .eslintcache
 .DS_Store

@@ -1,1 +1,11 @@
 // Here you can add other styles
+body{}
+.bg-color{
+    background-color: rgb(110 123 61 / 62%) !important;
+}
+.sidebar-dark{background-color: #93a05e !important;}
+.sidebar-nav .nav-link.active{background: #800000;}
+.sidebar-nav .nav-link:hover{background: #800000;}
+.sidebar-nav .nav-link{color: #000000; font-weight: 600;}
+.header-clr{background-color: #80000033;}
+.ml-10{margin-left: 10px;}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 14, 2024 at 09:37 AM
+-- Generation Time: Sep 16, 2024 at 07:49 AM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -682,7 +682,15 @@ CREATE TABLE IF NOT EXISTS `car_details` (
   `updated_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `updated_on` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `car_details`
+--
+
+INSERT INTO `car_details` (`id`, `name`, `type`, `seats`, `model`, `car_number`, `description`, `active`, `deleted`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
+(1, 'Ertiga-CNG', '2', '7', 'New', '1234', 'iskdbsjk', NULL, 1, NULL, '2024-09-15 08:20:19', NULL, '2024-09-15 09:05:22'),
+(2, 'Innova', '2', '7', 'New', '456', 'New Innova', NULL, 0, NULL, '2024-09-15 08:50:22', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -703,7 +711,23 @@ CREATE TABLE IF NOT EXISTS `car_photos` (
   `updatded_by` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `updated_on` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `car_photos`
+--
+
+INSERT INTO `car_photos` (`id`, `car_id`, `name`, `image`, `featured`, `deleted`, `created_by`, `created_on`, `updatded_by`, `updated_on`) VALUES
+(9, 1, 'WhatsApp Image 2024-09-14 at 12.41.27 PM.jpeg', 'car_featured_photo-1726369059610-320215960.jpeg', 1, 1, NULL, '2024-09-15 08:27:39', NULL, '2024-09-15 08:27:39'),
+(10, 1, 'WhatsApp Image 2024-09-14 at 12.41.27 PM.jpeg', 'car_photos-1726369059602-771055860.jpeg', 0, 1, NULL, '2024-09-15 08:27:39', NULL, '2024-09-15 08:27:39'),
+(11, 1, 'image_2024_08_19T13_01_33_576Z.jpg', 'car_photos-1726369059603-539345434.jpg', 0, 1, NULL, '2024-09-15 08:27:39', NULL, '2024-09-15 08:27:39'),
+(12, 1, 'image_2024_08_26T07_23_57_063Z.png', 'car_photos-1726369059606-942445844.png', 0, 1, NULL, '2024-09-15 08:27:39', NULL, '2024-09-15 08:27:39'),
+(13, 1, 'WhatsApp Image 2024-09-14 at 12.41.27 PM.jpeg', 'car_featured_photo-1726369074280-119501117.jpeg', 1, 1, NULL, '2024-09-15 08:27:54', NULL, '2024-09-15 09:05:22'),
+(14, 1, 'WhatsApp Image 2024-09-14 at 12.41.27 PM.jpeg', 'car_photos-1726369074267-800674529.jpeg', 0, 1, NULL, '2024-09-15 08:27:54', NULL, '2024-09-15 09:05:22'),
+(15, 1, 'image_2024_08_19T13_01_33_576Z.jpg', 'car_photos-1726369074268-14706541.jpg', 0, 1, NULL, '2024-09-15 08:27:54', NULL, '2024-09-15 09:05:22'),
+(16, 1, 'image_2024_08_26T07_23_57_063Z.png', 'car_photos-1726369074277-106923679.png', 0, 1, NULL, '2024-09-15 08:27:54', NULL, '2024-09-15 09:05:22'),
+(17, 2, 'WhatsApp Image 2024-09-14 at 12.41.27 PM.jpeg', 'car_featured_photo-1726370422018-671314818.jpeg', 1, 0, NULL, '2024-09-15 08:50:22', NULL, '2024-09-15 08:50:22'),
+(18, 2, 'WhatsApp Image 2024-09-14 at 12.41.27 PM.jpeg', 'car_photos-1726370422016-82957541.jpeg', 0, 0, NULL, '2024-09-15 08:50:22', NULL, '2024-09-15 08:50:22');
 
 -- --------------------------------------------------------
 
@@ -10395,30 +10419,25 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   `active` tinyint(1) NOT NULL DEFAULT '0',
   `verified` tinyint(1) NOT NULL DEFAULT '0',
   `verified_on` datetime DEFAULT NULL,
-  `delete_flag` tinyint(1) NOT NULL DEFAULT '0',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `created_on` datetime DEFAULT NULL,
   `created_by` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   `updated_on` datetime DEFAULT NULL,
   `updated_by` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `referal` double(10,2) DEFAULT NULL,
-  `qrfile` text COLLATE utf8mb3_unicode_ci,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `INSTITUTE_CODE` (`code`),
-  UNIQUE KEY `INSTITUTE_EMAIL` (`email`),
-  KEY `INSTITUTE_NAME` (`name`),
   KEY `VERIFIED` (`verified`),
-  KEY `DELETE_FLAG` (`delete_flag`),
+  KEY `DELETE_FLAG` (`deleted`),
   KEY `ACTIVE` (`active`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Dumping data for table `user_details`
 --
 
-INSERT INTO `user_details` (`id`, `code`, `name`, `dob`, `address`, `mobile`, `email`, `city`, `state`, `country`, `taluka`, `pincode`, `description`, `gstno`, `active`, `verified`, `verified_on`, `delete_flag`, `created_on`, `created_by`, `updated_on`, `updated_by`, `referal`, `qrfile`) VALUES
-(1, 'DEMOINST002', 'NEXTLEAP COMPUTER ACADEMY', '1984-07-15', '103 VIVA MALL VIRAR WEST', '9975554765', 'admin@hellodigitalindia.co.in', 'Mumbai', 17, 1, 'VASAI', '401403', '', '', 1, 1, '1997-01-24 00:00:00', 0, '2023-05-06 00:00:00', '', '2024-08-31 15:31:04', 'NEXTLEAP COMPUTER ACADEMY', NULL, NULL),
-(16, 'MH/X876', 'AMIT TEST', '2024-08-27', 'Nagpur', '8956848282', 'mobile4585@gmail.com', 'Nagpur', 17, 1, '', '440027', '', '', 1, 1, NULL, 0, '2024-08-28 14:40:53', 'NEXTLEAP COMPUTER ACADEMY', NULL, NULL, NULL, 'resources/AtcDetailsQR/16/66cee99d37692.png'),
-(15, 'MH/U869', 'TEST FRANCHISE', '2024-08-27', 'Test Franchise', '8956848282', 'admin1452@ditrpindia.com', 'Nagpur', 17, 1, 'Nagpur', '440027', '', 'TEST14528145', 1, 1, '2024-08-27 18:16:50', 0, '2024-08-27 18:16:50', 'NEXTLEAP COMPUTER ACADEMY', '2024-08-31 15:36:58', 'TEST FRANCHISE', NULL, 'resources/AtcDetailsQR/15/66cdcaba45374.png');
+INSERT INTO `user_details` (`id`, `code`, `name`, `dob`, `address`, `mobile`, `email`, `city`, `state`, `country`, `taluka`, `pincode`, `description`, `gstno`, `active`, `verified`, `verified_on`, `deleted`, `created_on`, `created_by`, `updated_on`, `updated_by`, `referal`) VALUES
+(1, '', 'Ritesh', '1990-10-28', 'Nagopur', '9021501884', 'test@gmail.com', '1', 2, 1, NULL, '440022', NULL, NULL, 0, 0, NULL, 1, NULL, '', NULL, NULL, NULL),
+(2, '', 'Ritesh', '1990-10-28', 'Nagopur', '9021501884', 'test@gmail.com', '1', 2, 1, NULL, '440022', NULL, NULL, 0, 0, NULL, 0, NULL, '', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -10452,14 +10471,15 @@ CREATE TABLE IF NOT EXISTS `user_login_master` (
   KEY `USER_NAME_2` (`username`),
   KEY `USER_ROLE` (`user_role`),
   KEY `USER_ID` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_login_master`
 --
 
 INSERT INTO `user_login_master` (`id`, `user_id`, `user_role`, `username`, `password`, `pass_text`, `pass_change_date`, `last_login_date`, `last_login_ip`, `current_login_ip`, `register_on`, `expire_on`, `active`, `delete_flag`, `created_by`, `created_on`, `updated_by`, `updated_on`, `user_login_status`) VALUES
-(1, 1, 1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', NULL, '2024-09-14 13:18:52', '::1', NULL, NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL);
+(1, 1, 1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', NULL, '2024-09-16 11:40:16', '::1', NULL, NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL),
+(2, 2, 2, 'test@gmail.com', 'a029d0df84eb5549c641e04a9ef389e5', 'mypass', NULL, '2024-09-16 12:38:55', '::1', NULL, '0000-00-00 00:00:00', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
